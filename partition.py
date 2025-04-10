@@ -9,7 +9,7 @@ class PartitionSolver:
     self.counter += 1 # DO NOT CHANGE THIS LINE
     if self.counter == 1:
         self.go_over = sum(L)/2
-        if self.go_over % 2 != 0:
+        if self.go_over % 1 != 0:
             return False
     if abs(sum(set_1)-sum(set_2)) > sum(L):
         return False
