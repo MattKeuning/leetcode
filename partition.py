@@ -1,19 +1,19 @@
 class PartitionSolver:
   def __init__(self):
     self.counter = 0 # DO NOT CHANGE THIS LINE
-
+    self.go_over = 0
   # Recursive function to solve the partition function
   # L is the list of remaining numbers
   # set_1 and set_2 are the two subset we are building (they are lists, though)
   def find_partition(self, L, set_1, set_2):
     self.counter += 1 # DO NOT CHANGE THIS LINE
     if self.counter == 1:
-        go_over = sum(L)/2
-        if go_over % 2 != 0:
+        self.go_over = sum(L)/2
+        if self.go_over % 2 != 0:
             return False
     if abs(sum(set_1)-sum(set_2)) > sum(L):
         return False
-    if sum(set_1) > go_over or sum(set_2) > go_over:
+    if sum(set_1) > self.go_over or sum(set_2) > self.go_over:
         return False
     # Base case: No items left
     if len(L) == 0:
