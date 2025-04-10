@@ -7,9 +7,9 @@ class PartitionSolver:
   # set_1 and set_2 are the two subset we are building (they are lists, though)
   def find_partition(self, L, set_1, set_2):
     self.counter += 1 # DO NOT CHANGE THIS LINE
-    if abs(set_1-set_2) > sum(L):
+    if abs(sum(set_1)-sum(set_2)) > sum(L):
         return False
-    if set_1 > sum(L)/2 or set_2 > sum(L)/2:
+    if sum(set_1) > sum(L)/2 or sum(set_2) > sum(L)/2:
         return False
     # Base case: No items left
     if len(L) == 0:
