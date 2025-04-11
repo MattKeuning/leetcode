@@ -10,11 +10,11 @@ class PathSolver:
   def solve_helper(self, row_idx, col_idx):
     if row_idx == 0 and col_idx == 0:
         return 1
-    if row_idx - 1 < 0 or row_idx >= self.num_rows or (row_idx-1, col_idx) in self.obstacles:
+    if row_idx - 1 < 0 or (row_idx-1, col_idx) in self.obstacles:
         res1 = 0
     else:
         res1 = self.solve_helper(row_idx-1, col_idx)
-    if col_idx - 1 < 0 or col_idx >= self.num_rows or (row_idx, col_idx-1) in self.obstacles:
+    if col_idx - 1 < 0 or (row_idx, col_idx-1) in self.obstacles:
         res2 = 0
     else:
         res2 = self.solve_helper(row_idx, col_idx-1)
@@ -30,3 +30,5 @@ if __name__ == '__main__':
   # It's the 3x3 example from question 1, with two obstacles (not in the corners)
   solver = PathSolver(3, 3, {(1,0), (1,1)})
   print(solver.solve())
+  solver2 = PathSolver(2, 3, {})
+  print(solver2.solve())
