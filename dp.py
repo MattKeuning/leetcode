@@ -18,7 +18,7 @@ class PathSolver:
   def solve(self):
     return self.solve_helper(self.num_rows - 1, self.num_cols - 1)
 
-  def dp(self):
+  def solve_dp(self):
     self.res = [[0]*(self.num_cols) for i in range(self.num_rows)]
     for row, col in self.obstacles:
         self.res[row][col] = -1
